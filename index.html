@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <style>
+        .content{
+            margin-top: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+            <button onclick = btnClict()>下载pdf</button>
+            <a download="" id="download" href='http://localhost:3000/a'>下载</a>
+    </div>
+</body>
+<script>
+    var btnClict =function(){
+        $.ajax({
+            // method: 'post',
+            url: 'http://localhost:3000/a',
+            success: function(res){
+                alert('成功');
+                window.open('baidu.com');
+            }
+        })
+    }
+</script>
+</html>
