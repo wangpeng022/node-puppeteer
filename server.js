@@ -20,9 +20,6 @@ const main = ctx => {
         })().then(ctx.response.body = fs.createReadStream('hn.pdf'))
     }       
 };
-const sendPDF = ctx =>{
-
-}
 app.use(main);
 app.listen(3000,()=>{
     console.log("http://localhost:3000");
