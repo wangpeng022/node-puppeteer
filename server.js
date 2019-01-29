@@ -11,22 +11,19 @@ const main = ctx => {
         ctx.response.type = 'html';
         ctx.response.body = fs.createReadStream('index.html');
     }else if(url == '/a'){
-
         (async () => {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.goto('https://baidu.com', {waitUntil: 'networkidle2'});
         await page.pdf({path: 'hn.pdf', format: 'A3'});
-        
         await browser.close();
-        })()
-
-        ctx.response.type = 'pdf';
-        ctx.response.body = fs.createReadStream('hn.pdf');
+        })().then(ctx.response.body = fs.createReadStream('hn.pdf'))
     }       
 };
+const sendPDF = ctx =>{
+
+}
 app.use(main);
 app.listen(3000,()=>{
     console.log("http://localhost:3000");
-
 });
